@@ -1,3 +1,10 @@
+# Cloudflare
+
+Cloudflare demo site:
+
+[https://my-astro-project.pages.dev](https://my-astro-project.pages.dev)
+
+
 # Astro Starter Kit: Basics
 
 ```sh
