@@ -7,7 +7,7 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "pages:dev": "wrangler pages dev --compatibility-date=2024-02-08 -- astro dev",
+    "pages:dev": "wrangler pages dev --compatibility-date=2024-02-14 -- astro dev",
     "pages:deploy": "astro build && wrangler pages deploy ./dist"
   },
   "dependencies": {
