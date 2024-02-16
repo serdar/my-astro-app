@@ -1,5 +1,5 @@
-export function onRequest(context) {
+export function onRequest(context:any) {
   console.log(context);
   console.log('function called')
-  return new Response("Hello, world! x 2")
+  return new Response(new Date().toString())
 }
