@@ -9,8 +9,7 @@ const resp = await fetch("/api/echo");
 
 // console.log(`resp: ${resp}`);
 //
-// const message = await resp.text();
-const message = "hello";
+const message = await resp.text();
 ---
 
 <Layout title="Welcome to Astro.">
