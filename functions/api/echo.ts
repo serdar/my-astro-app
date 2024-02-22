@@ -1,5 +1,4 @@
-export function onRequest(context) {
-  console.log(context);
-  console.log('function called')
-  return new Response("Hello, world! x 2")
+export const onRequest = async (context) => {
+	const value = "howdy";
+ 	return new Response(value);
 }
