@@ -1,10 +1,50 @@
-import { drizzle } from "drizzle-orm/planetscale-serverless";
-import { Client } from "@planetscale/database";
+// import { drizzle } from "drizzle-orm/planetscale-serverless";
+// import { Client } from "@planetscale/database";
+import { connect } from "@planetscale/database";
 
-const client = new Client({});
+// import * as schema from "../database/posts";
 
-const db = drizzle(client);
+// import { eq, desc, Placeholder, and, sql } from "drizzle-orm";
 
-export const getPosts = async () => {
+// export const mySchema = mysqlSchema("my_schema")
+// export const mySchemaUsers = mySchema.table("users", {
+//   id: int("id").primaryKey().autoincrement(),
+//   name: text("name"),
+// });
+
+// const connectDb = (dbConnectionString: string) => {
+//    console.log("*** db called ***");
+//    const client = new Client({
+//       url: dbConnectionString,
+//    });
+
+//    const db = drizzle(client, { schema });
+
+//    return db;
+// };
+
+export const getPosts = async (dburl: string) => {
+   // const db = connectDb(dburl);
+
+   // const objPosts = await db.query.posts.findMany({
+   //    limit: 10,
+   //    orderBy: [desc(schema.posts.pubDate)],
+   // });
+
+   // console.log(`objPo:`, objPosts);
+
+   const config = {
+      url: dburl,
+      fetch: (url: any, init: any) => {
+         delete (init as any)["cache"]; // Remove cache header
+         return fetch(url, init);
+      },
+   };
+
+   const conn = connect(config);
+
+   const results = await conn.execute("SHOW TABLES");
+   console.log(`res:`, results);
+
    return "hi";
 };
