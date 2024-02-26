@@ -5,10 +5,7 @@ import Card from "../components/Card.astro";
 // const runtime = Astro.locals.runtime;
 // console.log(`*******\ntest\n*******`);
 
-const resp = await fetch("/api/echo");
-
-// console.log(`resp: ${resp}`);
-//
+const resp = await fetch(Astro.url + "api/echo");
 const message = await resp.text();
 ---
 
@@ -70,6 +67,11 @@ const message = await resp.text();
         body="Come say hi to our amazing Discord community. ❤️"
       />
       <Card href="https://kilic.net" title="knet" body={message} />
+      <Card
+        href="https://kilic.net"
+        title="knet"
+        body={new Date().toString()}
+      />
     </ul>
   </main>
 </Layout>
