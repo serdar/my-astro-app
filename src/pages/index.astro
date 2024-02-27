@@ -1,16 +1,32 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
+import BlogPost from "../components/BlogPost.astro";
+import { getCollection } from "astro:content";
+const allPosts = await getCollection("post");
 
-// const runtime = Astro.locals.runtime;
-// console.log(`*******\ntest\n*******`);
-
-const resp = await fetch(Astro.url + "api/echo");
-const message = await resp.text();
+// const resp = await fetch(Astro.url + "api/echo");
+// const message = await resp.text();
 ---
 
 <Layout title="Welcome to Astro.">
-   <main></main>
+   <main>
+      <ul>
+         Previously:
+         <hr />
+         {
+            allPosts.map((post) => (
+               <>
+                  <BlogPost
+                     url={`/post/${post.slug}/`}
+                     title={post.data.title}
+                  />
+                  <br />
+               </>
+            ))
+         }
+      </ul>
+   </main>
 </Layout>
 
 <style>
@@ -19,7 +35,6 @@ const message = await resp.text();
       padding: 1rem;
       width: 800px;
       max-width: calc(100% - 2rem);
-      color: white;
       font-size: 20px;
       line-height: 1.6;
    }
