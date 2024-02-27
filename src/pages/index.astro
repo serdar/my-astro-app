@@ -5,8 +5,8 @@ import BlogPost from "../components/BlogPost.astro";
 import { getCollection } from "astro:content";
 const allPosts = await getCollection("post");
 
-// const resp = await fetch(Astro.url + "api/echo");
-// const message = await resp.text();
+const resp = await fetch(Astro.url + "api/echo");
+const message = await resp.text();
 ---
 
 <Layout title="Welcome to Astro.">
@@ -25,6 +25,7 @@ const allPosts = await getCollection("post");
                </>
             ))
          }
+         {message}
       </ul>
    </main>
 </Layout>
