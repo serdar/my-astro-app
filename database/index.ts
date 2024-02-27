@@ -43,8 +43,15 @@ export const getPosts = async (dburl: string) => {
 
    const conn = connect(config);
 
-   const results = await conn.execute("SHOW TABLES");
-   console.log(`res:`, results);
+   let results;
 
-   return "hi";
+   try {
+      results = await conn.execute("select * from posts limit 1;");
+   } catch (error) {
+      console.log(`dberror:`, error);
+   }
+
+   console.log(`res:`, results);
+   return results;
+   // return "hello";
 };
