@@ -8,7 +8,10 @@ export default defineConfig({
   output: "server",
   adapter: cloudflare({
     mode: "directory",
-    functionPerRoute: false
+    functionPerRoute: false,
+    routes: {
+      exclude: ['/post/*']
+    }
   }),
   integrations: [mdx()]
 });
