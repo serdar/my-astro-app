@@ -3,3 +3,4 @@
 # todo
 
 -  implement photo gallery
+- move db to astro db?
