@@ -55,3 +55,27 @@ export const getPosts = async (dburl: string) => {
    return results;
    // return "hello";
 };
+
+export const getPostBySlug = async (dburl: string, slug: string) => {
+   const config = {
+      url: dburl,
+      fetch: (url: any, init: any) => {
+         delete (init as any)["cache"]; // Remove cache header
+         return fetch(url, init);
+      },
+   };
+
+   const conn = connect(config);
+
+   let results;
+
+   try {
+      results = await conn.execute("select * from posts where slug = ?;", slug);
+   } catch (error) {
+      console.log(`dberror:`, error);
+   }
+
+   console.log(`res:`, results);
+   return results;
+   // return "hello";
+};
