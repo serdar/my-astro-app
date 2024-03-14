@@ -13,6 +13,7 @@
   "dependencies": {
     "@astrojs/check": "^0.5.4",
     "@astrojs/cloudflare": "^9.0.0",
+    "@astrojs/db": "^0.8.2",
     "@astrojs/mdx": "^2.1.1",
     "@planetscale/database": "^1.16.0",
     "astro": "^4.3.7",

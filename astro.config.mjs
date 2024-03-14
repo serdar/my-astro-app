@@ -1,7 +1,8 @@
 import { defineConfig } from 'astro/config';
 import cloudflare from "@astrojs/cloudflare";
-
 import mdx from "@astrojs/mdx";
+
+import db from "@astrojs/db";
 
 // https://astro.build/config
 export default defineConfig({
@@ -13,5 +14,5 @@ export default defineConfig({
       exclude: ['/post/*']
     }
   }),
-  integrations: [mdx()]
+  integrations: [mdx(), db()]
 });

@@ -6,9 +6,15 @@ const allPosts = await getCollection("post");
 
 const resp = await fetch(Astro.url + "api/echo");
 const message = await resp.text();
+
+import { db, Comments,eq } from "astro:db";
+
+const newPost = await db.select().from(Comments).where(eq(Comments.id, 1)).get()
+console.log(newPost);
 ---
 
 <Layout title="Welcome to Astro.">
+  {newPost?.title}
   <main>
     <ul>
       Previously:
