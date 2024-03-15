@@ -17,5 +17,22 @@ export default async function seed() {
       published: true,
       slug: "my-2-post",
       siteVersionNumber: 1
+   
+   },{
+      id: 3,
+      title: "My 3 Post",
+      description: "This is my 2 post",
+      pubDate: new Date(),
+      published: true,
+      slug: "my-2-post",
+      siteVersionNumber: 1
+   },{
+      id: 4,
+      title: "My 4 Post",
+      description: "This is my 2 post",
+      pubDate: new Date(),
+      published: true,
+      slug: "my-2-post",
+      siteVersionNumber: 1
    }])
 }
