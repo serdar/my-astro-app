@@ -9,13 +9,17 @@ const message = await resp.text();
 
 import { db, Comments,eq } from "astro:db";
 
-const newPost = await db.select().from(Comments).where(eq(Comments.id, 1)).get()
-console.log(newPost);
+const newPost: Comments [] = await db.select().from(Comments)
 ---
 
 <Layout title="Welcome to Astro.">
-  {newPost?.title}
+  {console.log(newPost)}
   <main>
+    {
+      newPost?.map(comment => {
+        <div>{comment.title}</div>
+      })
+    }    
     <ul>
       Previously:
       <hr />
