@@ -12,20 +12,14 @@ dependencies:
     specifier: ^9.0.0
     version: 9.0.0(astro@4.4.0)
   '@astrojs/db':
-    specifier: ^0.8.2
-    version: 0.8.5(@cloudflare/workers-types@4.20240208.0)(@planetscale/database@1.16.0)
+    specifier: ^0.8.5
+    version: 0.8.5(@cloudflare/workers-types@4.20240208.0)
   '@astrojs/mdx':
     specifier: ^2.1.1
     version: 2.1.1(astro@4.4.0)
-  '@planetscale/database':
-    specifier: ^1.16.0
-    version: 1.16.0
   astro:
     specifier: ^4.3.7
     version: 4.4.0(typescript@5.3.3)
-  drizzle-orm:
-    specifier: ^0.29.4
-    version: 0.29.4(@cloudflare/workers-types@4.20240208.0)(@planetscale/database@1.16.0)
   typescript:
     specifier: ^5.3.3
     version: 5.3.3
@@ -92,13 +86,13 @@ packages:
     resolution: {integrity: sha512-jzj01BRv/fmo+9Mr2FhocywGzEYiyiP2GVHje1ziGNU6c97kwhYGsnvwMkHrncAy9T9Vi54cjaMK7UE4ClX4vA==}
     dev: false
 
-  /@astrojs/db@0.8.5(@cloudflare/workers-types@4.20240208.0)(@planetscale/database@1.16.0):
+  /@astrojs/db@0.8.5(@cloudflare/workers-types@4.20240208.0):
     resolution: {integrity: sha512-XtlkTGt3gXFFntQXc0aasfPwUxF/IvkBFszu9e1ARjE362uO5Eq9YmGxwBoBXD0FR8jy2eLLsNoEbgfJZZue4w==}
     dependencies:
       '@libsql/client': 0.5.6
       async-listen: 3.0.1
       deep-diff: 1.0.2
-      drizzle-orm: 0.29.5(@cloudflare/workers-types@4.20240208.0)(@libsql/client@0.5.6)(@planetscale/database@1.16.0)
+      drizzle-orm: 0.29.5(@cloudflare/workers-types@4.20240208.0)(@libsql/client@0.5.6)
       kleur: 4.1.5
       nanoid: 5.0.6
       open: 10.1.0
@@ -1419,11 +1413,6 @@ packages:
       fastq: 1.17.1
     dev: false
 
-  /@planetscale/database@1.16.0:
-    resolution: {integrity: sha512-HNUrTqrd8aTRZYMDcsoZ62s36sIWkMMmKZBOehoCWR2WrfNPKq+Q1yQef5okl3pSVlldFnu2h/dbHjOsDTHXug==}
-    engines: {node: '>=16'}
-    dev: false
-
   /@rollup/rollup-android-arm-eabi@4.11.0:
     resolution: {integrity: sha512-BV+u2QSfK3i1o6FucqJh5IK9cjAU6icjFFhvknzFgu472jzl0bBojfDAkJLBEsHFMo+YZg6rthBvBBt8z12IBQ==}
     cpu: [arm]
@@ -2426,82 +2415,7 @@ packages:
       - supports-color
     dev: true
 
-  /drizzle-orm@0.29.4(@cloudflare/workers-types@4.20240208.0)(@planetscale/database@1.16.0):
-    resolution: {integrity: sha512-ZnSM8TAxFhzH7p1s3+w3pRE/eKaOeNkH9SKitm717pubDVVcV2I0BCDBPGKV+pe02+wMfw37ntlTcCyo2rA3IA==}
-    peerDependencies:
-      '@aws-sdk/client-rds-data': '>=3'
-      '@cloudflare/workers-types': '>=3'
-      '@libsql/client': '*'
-      '@neondatabase/serverless': '>=0.1'
-      '@opentelemetry/api': ^1.4.1
-      '@planetscale/database': '>=1'
-      '@types/better-sqlite3': '*'
-      '@types/pg': '*'
-      '@types/react': '>=18'
-      '@types/sql.js': '*'
-      '@vercel/postgres': '*'
-      better-sqlite3: '>=7'
-      bun-types: '*'
-      expo-sqlite: '>=13.2.0'
-      knex: '*'
-      kysely: '*'
-      mysql2: '>=2'
-      pg: '>=8'
-      postgres: '>=3'
-      react: '>=18'
-      sql.js: '>=1'
-      sqlite3: '>=5'
-    peerDependenciesMeta:
-      '@aws-sdk/client-rds-data':
-        optional: true
-      '@cloudflare/workers-types':
-        optional: true
-      '@libsql/client':
-        optional: true
-      '@neondatabase/serverless':
-        optional: true
-      '@opentelemetry/api':
-        optional: true
-      '@planetscale/database':
-        optional: true
-      '@types/better-sqlite3':
-        optional: true
-      '@types/pg':
-        optional: true
-      '@types/react':
-        optional: true
-      '@types/sql.js':
-        optional: true
-      '@vercel/postgres':
-        optional: true
-      better-sqlite3:
-        optional: true
-      bun-types:
-        optional: true
-      expo-sqlite:
-        optional: true
-      knex:
-        optional: true
-      kysely:
-        optional: true
-      mysql2:
-        optional: true
-      pg:
-        optional: true
-      postgres:
-        optional: true
-      react:
-        optional: true
-      sql.js:
-        optional: true
-      sqlite3:
-        optional: true
-    dependencies:
-      '@cloudflare/workers-types': 4.20240208.0
-      '@planetscale/database': 1.16.0
-    dev: false
-
-  /drizzle-orm@0.29.5(@cloudflare/workers-types@4.20240208.0)(@libsql/client@0.5.6)(@planetscale/database@1.16.0):
+  /drizzle-orm@0.29.5(@cloudflare/workers-types@4.20240208.0)(@libsql/client@0.5.6):
     resolution: {integrity: sha512-jS3+uyzTz4P0Y2CICx8FmRQ1eplURPaIMWDn/yq6k4ShRFj9V7vlJk67lSf2kyYPzQ60GkkNGXcJcwrxZ6QCRw==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
@@ -2574,7 +2488,6 @@ packages:
     dependencies:
       '@cloudflare/workers-types': 4.20240208.0
       '@libsql/client': 0.5.6
-      '@planetscale/database': 1.16.0
     dev: false
 
   /dset@3.1.3:

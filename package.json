@@ -8,16 +8,14 @@
     "preview": "astro preview",
     "astro": "astro",
     "pages:dev": "wrangler pages dev --compatibility-date=2024-02-14 -- astro dev",
-    "pages:deploy": "astro build && wrangler pages deploy ./dist --branch=production"
+    "pages:deploy": "astro build --remote && wrangler pages deploy ./dist --branch=production"
   },
   "dependencies": {
     "@astrojs/check": "^0.5.4",
     "@astrojs/cloudflare": "^9.0.0",
-    "@astrojs/db": "^0.8.2",
+    "@astrojs/db": "^0.8.5",
     "@astrojs/mdx": "^2.1.1",
-    "@planetscale/database": "^1.16.0",
     "astro": "^4.3.7",
-    "drizzle-orm": "^0.29.4",
     "typescript": "^5.3.3"
   },
   "devDependencies": {

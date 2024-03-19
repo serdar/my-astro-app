@@ -7,19 +7,23 @@ const allPosts = await getCollection("post");
 const resp = await fetch(Astro.url + "api/echo");
 const message = await resp.text();
 
-import { db, Comments,eq } from "astro:db";
+import { db, Comments, eq } from "astro:db";
 
-const newPost: Comments [] = await db.select().from(Comments)
+const newPost: Comments[] = await db.select().from(Comments);
 ---
 
 <Layout title="Welcome to Astro.">
-  {console.log(newPost)}
+  pre-comments
+  {newPost.length}
   <main>
     {
-      newPost?.map(comment => {
-        <div>{comment.title}</div>
+      newPost?.map((comment) => {
+        {
+          return comment.title;
+        }
       })
-    }    
+    }
+    comments
     <ul>
       Previously:
       <hr />
