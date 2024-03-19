@@ -9,20 +9,20 @@ const message = await resp.text();
 
 import { db, Comments, eq } from "astro:db";
 
-const newPost: Comments[] = await db.select().from(Comments);
+// const newPost: Comments[] = await db.select().from(Comments);
 ---
 
 <Layout title="Welcome to Astro.">
   pre-comments
-  {newPost.length}
   <main>
+    <!-- {newPost.length}
     {
       newPost?.map((comment) => {
         {
           return comment.title;
         }
       })
-    }
+    } -->
     comments
     <ul>
       Previously:
