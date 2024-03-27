@@ -14,17 +14,22 @@ const newPost: Comments[] = await db.select().from(Comments);
 
 <Layout title="kilic.net">
   <main>
+    <article>
+      Blog post The coffee industry needs it's equivalent of the W3C to stop
+      this mess:
+      <img src="" />
+      9:45 PM · Mar 27, 2024
+    </article>
     {newPost.length}
     {
       newPost?.map((comment) => {
         {
-          return comment.title;
+          return <article>{comment.title}</article>;
         }
       })
     }
-    comments
     <ul>
-      {message}
+      API server side: {message}
     </ul>
   </main>
 </Layout>
