@@ -9,32 +9,21 @@ const message = await resp.text();
 
 import { db, Comments, eq } from "astro:db";
 
-// const newPost: Comments[] = await db.select().from(Comments);
+const newPost: Comments[] = await db.select().from(Comments);
 ---
 
-<Layout title="Welcome to Astro.">
-  pre-comments
+<Layout title="kilic.net">
   <main>
-    <!-- {newPost.length}
+    {newPost.length}
     {
       newPost?.map((comment) => {
         {
           return comment.title;
         }
       })
-    } -->
+    }
     comments
     <ul>
-      Previously:
-      <hr />
-      {
-        allPosts.map((post) => (
-          <>
-            <BlogPost url={`/post/${post.slug}/`} title={post.data.title} />
-            <br />
-          </>
-        ))
-      }
       {message}
     </ul>
   </main>
