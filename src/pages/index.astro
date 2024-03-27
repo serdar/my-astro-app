@@ -2,12 +2,16 @@
 import Layout from "../layouts/Layout.astro";
 import BlogPost from "../components/BlogPost.astro";
 import { getCollection } from "astro:content";
+import { db, Comments, eq } from "astro:db";
+
 const allPosts = await getCollection("post");
 
 const resp = await fetch(Astro.url + "api/echo");
-const message = await resp.text();
 
-import { db, Comments, eq } from "astro:db";
+let message = "No server data";
+if (resp.status === 200) {
+  message = await resp.text();
+}
 
 const newPost: Comments[] = await db.select().from(Comments);
 ---
@@ -16,9 +20,7 @@ const newPost: Comments[] = await db.select().from(Comments);
   <main>
     <article>
       Blog post The coffee industry needs it's equivalent of the W3C to stop
-      this mess:
-      <img src="" />
-      9:45 PM · Mar 27, 2024
+      this mess: 9:45 PM · Mar 27, 2024
     </article>
     {newPost.length}
     {
