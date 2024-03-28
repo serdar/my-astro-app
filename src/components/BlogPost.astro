@@ -1,10 +1,20 @@
 ---
 const { url, pubDate, description } = Astro.props;
 console.log(`${pubDate} ${url} ${description}`);
+
+function format_date(date: Date): string {
+    return date.toLocaleTimeString() + " - " + date.toLocaleDateString();
+}
 ---
 
 
 <article class="h-entry">
    <div class="e-content">{description}</div>
-   <time class="dt-published" datetime="2024-03-27T09:45:00"><a href={url} class="url">{pubDate}</a></time>
+   <time class="dt-published" datetime="2024-03-27T09:45:00"><a href={"/post/" + url} class="url">{format_date(pubDate)}</a></time>
 </article>
+
+<style>
+   a {
+      color: #8f8a8a;
+   }
+</style>
