@@ -1,5 +1,10 @@
 ---
-const { url, title } = Astro.props;
+const { url, pubDate, description } = Astro.props;
+console.log(`${pubDate} ${url} ${description}`);
 ---
 
-<a href={url}>{title}</a>
+
+<article class="h-entry">
+   <div class="e-content">{description}</div>
+   <time class="dt-published" datetime="2024-03-27T09:45:00"><a href={url} class="url">{pubDate}</a></time>
+</article>

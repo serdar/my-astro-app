@@ -1,7 +1,62 @@
 ---
-const { frontmatter } = Astro.props;
+import HeaderNav from "../components/HeaderNav.astro";
+
+interface Props {
+  title: string;
+  frontmatter: any;
+}
+
+const { title,frontmatter } = Astro.props;
 ---
 
-<h1>{frontmatter.title}</h1>
-<slot />
-PubDate: {frontmatter.pubDate}
+
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <HeaderNav />
+
+    <h1>{frontmatter.title}</h1>
+    <slot />
+    PubDate: {frontmatter.pubDate}
+  </body>
+</html>
+<style is:global>
+  :root {
+    --accent: 136, 58, 234;
+    --accent-light: 224, 204, 250;
+    --accent-dark: 49, 10, 101;
+    --accent-gradient: linear-gradient(
+      45deg,
+      rgb(var(--accent)),
+      rgb(var(--accent-light)) 30%,
+      white 60%
+    );
+  }
+  html {
+    font-family: system-ui, sans-serif;
+    abackground: #13151a;
+    background-size: 224px;
+  }
+  code {
+    font-family:
+      Cousine,
+      Menlo,
+      Monaco,
+      Lucida Console,
+      Liberation Mono,
+      DejaVu Sans Mono,
+      Bitstream Vera Sans Mono,
+      Courier New,
+      monospace;
+  }
+</style>

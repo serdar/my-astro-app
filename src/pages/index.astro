@@ -1,35 +1,36 @@
 ---
-import Layout from "../layouts/Layout.astro";
 import BlogPost from "../components/BlogPost.astro";
-import { getCollection } from "astro:content";
-import { db, Comments, eq } from "astro:db";
-
-const allPosts = await getCollection("post");
+import Layout from "../layouts/Layout.astro";
+import { db, Comments } from "astro:db";
 
 const resp = await fetch(Astro.url + "api/echo");
 
 let message = "No server data";
+
 if (resp.status === 200) {
   message = await resp.text();
 }
 
-const newPost: Comments[] = await db.select().from(Comments);
+const newPost: Comments = await db.select().from(Comments);
+
+console.log(newPost[0].title);
 ---
 
 <Layout title="kilic.net">
   <main>
-    <article>
-      Blog post The coffee industry needs it's equivalent of the W3C to stop
-      this mess: 9:45 PM · Mar 27, 2024
-    </article>
-    {newPost.length}
+    Found {newPost.length} posts.
+    <hr />
     {
-      newPost?.map((comment) => {
-        {
-          return <article>{comment.title}</article>;
-        }
-      })
+      newPost?.map((post) => (
+        <BlogPost
+          title={post.title}
+          description={post.description}
+          pubDate={post.pubDate}
+          url={post.slug}
+        />
+      ))
     }
+    <hr />
     <ul>
       API server side: {message}
     </ul>
@@ -37,6 +38,9 @@ const newPost: Comments[] = await db.select().from(Comments);
 </Layout>
 
 <style>
+  .dt-published {
+    color: #999;
+  }
   main {
     margin: auto;
     padding: 1rem;
